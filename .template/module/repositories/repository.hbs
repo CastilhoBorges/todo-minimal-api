@@ -1,0 +1,15 @@
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { BaseRepository } from '../../../common/config/base/base-repository';
+import { {{namePascalCase}} } from '../entities/{{nameKebabCase}}.entity';
+
+@Injectable()
+export class {{namePascalCase}}Repository extends BaseRepository<{{namePascalCase}}> {
+  constructor(
+    @InjectRepository({{namePascalCase}})
+    repository: Repository<{{namePascalCase}}>,
+  ) {
+    super(repository);
+  }
+}

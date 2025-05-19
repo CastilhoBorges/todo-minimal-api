@@ -1,0 +1,14 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+import { HttpStatus } from '@nestjs/common';
+import { BaseException } from '../../../common/exceptions/base.exception';
+
+export class {{namePascalCase}}ExistsNameException extends BaseException {
+  constructor(error?: any) {
+    super({
+      name: {{namePascalCase}}ExistsNameException.name,
+      message: 'The name not found',
+      statusCode: HttpStatus.BAD_REQUEST,
+      stack: error?.stack as string,
+    });
+  }
+}

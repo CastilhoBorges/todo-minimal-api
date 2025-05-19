@@ -1,0 +1,16 @@
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
+import { Controller, Get } from '@nestjs/common';
+import { {{namePascalCase}}QueryService } from '../services/{{nameKebabCase}}.query.service';
+import { {{namePascalCase}} } from '../entities/{{nameKebabCase}}.entity';
+
+@ApiTags('{{namePascalCase}}')
+@Controller('{{nameKebabCase}}')
+export class {{namePascalCase}}Controller {
+  constructor(private readonly {{nameCamelCase}}QueryService: {{namePascalCase}}QueryService) {}
+
+  @Get()
+  @ApiResponse({ type: Promise<{{namePascalCase}}[]> })
+  async getAll{{namePascalCase}}s() {
+    return this.{{nameCamelCase}}QueryService.getAll{{namePascalCase}}s();
+  }
+}

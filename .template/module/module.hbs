@@ -1,0 +1,21 @@
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { {{namePascalCase}} } from './entities/{{nameKebabCase}}.entity';
+import { {{namePascalCase}}Controller } from './controllers/{{nameKebabCase}}.controller';
+import { {{namePascalCase}}Repository } from './repositories/{{nameKebabCase}}.repository';
+import { {{namePascalCase}}QueryService } from './services/{{nameKebabCase}}.query.service';
+import { {{namePascalCase}}ValidationService } from './services/{{nameKebabCase}}.validation.service';
+import { {{namePascalCase}}CommandService } from './services/{{nameKebabCase}}.command.service';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([{{namePascalCase}}])],
+  controllers: [{{namePascalCase}}Controller],
+  providers: [
+    {{namePascalCase}}CommandService,
+    {{namePascalCase}}QueryService,
+    {{namePascalCase}}ValidationService,
+    {{namePascalCase}}Repository,
+  ],
+  exports: [{{namePascalCase}}CommandService, {{namePascalCase}}QueryService, {{namePascalCase}}ValidationService],
+})
+export class {{namePascalCase}}Module {}

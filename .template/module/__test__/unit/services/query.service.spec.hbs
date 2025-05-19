@@ -1,0 +1,28 @@
+import { {{namePascalCase}}QueryService } from '../../../services/{{nameKebabCase}}.query.service';
+import { {{nameCamelCase}}QueryServiceProvider, {{nameCamelCase}}sMock } from '../../__mocks__/{{nameKebabCase}}.mock';
+import { JEST_TIMEOUT } from '../../../../../common/constants/jest.constants';
+import { JestSetupUnit } from '../../../../../common/config/jest/jest-setup.unit';
+import { ProviderTest } from '../../../../../common/types/jest.type';
+
+describe('{{namePascalCase}}QueryService', () => {
+  const setup = new JestSetupUnit<
+    ProviderTest<typeof {{nameCamelCase}}QueryServiceProvider>
+  >({{nameCamelCase}}QueryServiceProvider);
+
+  let services = setup.getProvider();
+
+  beforeEach(async () => {
+    services = await setup.getServices([{{namePascalCase}}QueryService]);
+  }, JEST_TIMEOUT);
+
+  setup.describeDefinedServices(services);
+
+  describe('getAll{{namePascalCase}}s', () => {
+    it('should return an array of s', async () => {
+      (services.{{nameCamelCase}}Repository.find as jest.Mock).mockResolvedValue({{nameCamelCase}}sMock);
+
+      expect(await services.{{nameCamelCase}}QueryService.getAll{{namePascalCase}}s()).toEqual({{nameCamelCase}}sMock);
+    });
+  });
+});
+

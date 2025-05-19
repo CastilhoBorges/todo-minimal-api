@@ -1,0 +1,8 @@
+import { Column, Entity } from 'typeorm';
+import { BaseEntity } from '../../../common/config/base/base.entity';
+
+@Entity({ name: '{{nameSnakeCase}}' })
+export class {{namePascalCase}} extends BaseEntity {
+  @Column({ type: 'varchar' })
+  name: string;
+}

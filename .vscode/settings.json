@@ -1,0 +1,8 @@
+{
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.autoImportFileExcludePatterns": ["**/dist/**"],
+  "typescript.suggestionActions.enabled": true,
+  "typescript.suggest.autoImports": true,
+  "editor.colorDecorators": true
+}

@@ -1,0 +1,48 @@
+import { Injectable } from '@nestjs/common';
+import { {{namePascalCase}}Repository } from '../repositories/{{nameKebabCase}}.repository';
+import { EntityManager } from 'typeorm/entity-manager/EntityManager';
+import { FindOneOptions } from 'typeorm';
+import { {{namePascalCase}} } from '../entities/{{nameKebabCase}}.entity';
+
+@Injectable()
+export class {{namePascalCase}}QueryService {
+  constructor(private {{nameCamelCase}}Repository: {{namePascalCase}}Repository) {}
+
+  async getAll{{namePascalCase}}s(entityManager?: EntityManager) {
+    return this.{{nameCamelCase}}Repository.find(
+      {
+        select: {
+          id: true,
+        },
+      },
+      entityManager,
+    );
+  }
+
+  async get{{namePascalCase}}ById(id: string, entityManager?: EntityManager) {
+    return this.{{nameCamelCase}}Repository.findOne(
+      {
+        select: { id: true },
+        where: { id },
+      },
+      entityManager,
+    );
+  }
+
+  async get{{namePascalCase}}ByName(name: string, entityManager?: EntityManager) {
+    return this.{{nameCamelCase}}Repository.findOne(
+      {
+        select: { id: true },
+        where: { name },
+      },
+      entityManager,
+    );
+  }
+
+  async get{{namePascalCase}}(
+    options: FindOneOptions<{{namePascalCase}}>,
+    entityManager?: EntityManager,
+  ) {
+    return this.{{nameCamelCase}}Repository.findOne(options, entityManager);
+  }
+}

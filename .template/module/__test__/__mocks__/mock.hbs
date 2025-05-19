@@ -1,0 +1,22 @@
+import { {{namePascalCase}} } from '../../entities/{{nameKebabCase}}.entity';
+import { {{namePascalCase}}Repository } from '../../repositories/{{nameKebabCase}}.repository';
+import { {{namePascalCase}}QueryService } from '../../services/{{nameKebabCase}}.query.service';
+
+export const {{nameCamelCase}}QueryServiceProvider = {
+  {{nameCamelCase}}Repository: {{namePascalCase}}Repository,
+  {{nameCamelCase}}QueryService: {{namePascalCase}}QueryService,
+};
+
+export const {{nameCamelCase}}sMock: Partial<{{namePascalCase}}>[] = [
+  {
+    id: '40467e48-1c93-45c2-9ca5-2d4936b29596',
+    name: 'Developer',
+  },
+  {
+    id: '40467e48-1c93-45c2-9ca5-2d4936b29597',
+    name: 'Developer 2',
+  },
+];
+
+
+

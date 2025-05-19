@@ -1,0 +1,25 @@
+import { Injectable } from '@nestjs/common';
+import { {{namePascalCase}}QueryService } from './{{nameKebabCase}}.query.service';
+import { EntityManager } from 'typeorm';
+import { {{namePascalCase}}ExistsNameException } from '../exceptions/{{nameKebabCase}}.exception';
+
+@Injectable()
+export class {{namePascalCase}}ValidationService {
+  constructor(private readonly {{nameCamelCase}}QueryService: {{namePascalCase}}QueryService) {}
+
+  async validateExisting{{namePascalCase}}Name(
+    name: string,
+    entityManager?: EntityManager,
+  ): Promise<boolean> {
+    const {{nameCamelCase}} = await this.{{nameCamelCase}}QueryService.get{{namePascalCase}}ByName(
+      name,
+      entityManager,
+    );
+
+    if (!{{nameCamelCase}}?.id) {
+      return Boolean(name);
+    }
+
+    throw new {{namePascalCase}}ExistsNameException();
+  }
+}

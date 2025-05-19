@@ -1,0 +1,28 @@
+import { Injectable } from '@nestjs/common';
+import { EntityManager } from 'typeorm';
+import { {{namePascalCase}}Repository } from '../repositories/{{nameKebabCase}}.repository';
+import { {{namePascalCase}}ValidationService } from './{{nameKebabCase}}.validation.service';
+import { Create{{namePascalCase}}DTO } from '../{{nameKebabCase}}.dtos';
+import { Create{{namePascalCase}}Response } from '../{{nameKebabCase}}.types';
+
+@Injectable()
+export class {{namePascalCase}}CommandService {
+  constructor(
+    private {{nameCamelCase}}Repository: {{namePascalCase}}Repository,
+    private {{nameCamelCase}}ValidationService: {{namePascalCase}}ValidationService,
+  ) {}
+
+  async create{{namePascalCase}}(
+    dto: Create{{namePascalCase}}DTO,
+    entityManager?: EntityManager,
+  ): Promise<Create{{namePascalCase}}Response> {
+    await this.{{nameCamelCase}}ValidationService.validateExisting{{namePascalCase}}Name(
+      dto.name,
+      entityManager,
+    );
+
+    const {{nameCamelCase}}Created = await this.{{nameCamelCase}}Repository.create(dto, entityManager);
+
+    return { id: {{nameCamelCase}}Created.id, name: {{nameCamelCase}}Created.name };
+  }
+}

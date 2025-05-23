@@ -1,10 +1,10 @@
 import { {{namePascalCase}} } from '../../entities/{{nameKebabCase}}.entity';
 import { {{namePascalCase}}Repository } from '../../repositories/{{nameKebabCase}}.repository';
-import { {{namePascalCase}}QueryService } from '../../services/{{nameKebabCase}}.query.service';
+import { {{namePascalCase}}Service } from '../../services/{{nameKebabCase}}.service';
 
-export const {{nameCamelCase}}QueryServiceProvider = {
+export const {{nameCamelCase}}ServiceProvider = {
   {{nameCamelCase}}Repository: {{namePascalCase}}Repository,
-  {{nameCamelCase}}QueryService: {{namePascalCase}}QueryService,
+  {{nameCamelCase}}Service: {{namePascalCase}}Service,
 };
 
 export const {{nameCamelCase}}sMock: Partial<{{namePascalCase}}>[] = [

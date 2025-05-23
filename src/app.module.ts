@@ -8,8 +8,9 @@ import { TransactionModule } from './common/config/transaction/transaction.modul
 import typeorm, {
   connectionSource,
 } from './common/config/typeorm/typeorm.config';
+import { UserModule } from './modules/user/user.module';
 
-export const modules = [TransactionModule];
+export const modules = [TransactionModule, UserModule];
 
 @Module({
   imports: [

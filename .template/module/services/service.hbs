@@ -1,0 +1,17 @@
+import { Injectable } from '@nestjs/common';
+import { EntityManager } from 'typeorm';
+import { {{namePascalCase}}Repository } from '../repositories/{{nameKebabCase}}.repository';
+import { Create{{namePascalCase}}DTO } from '../{{nameKebabCase}}.dtos';
+import { Create{{namePascalCase}}Response } from '../{{nameKebabCase}}.types';
+
+@Injectable()
+export class {{namePascalCase}}Service {
+  constructor(
+    private {{nameCamelCase}}Repository: {{namePascalCase}}Repository
+  ) {}
+
+  async create{{namePascalCase}}(
+    dto: Create{{namePascalCase}}DTO,
+    entityManager?: EntityManager,
+  ): Promise<Create{{namePascalCase}}Response> {}
+}
